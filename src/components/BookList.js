@@ -1,23 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import BookItem from './BookItem';
+import BookAdd from './BookAdd';
 
-const Books = ({ bookList }) => (
-  <ul className="books-list-section">
-    {bookList.map((book) => (
-      <BookItem key={book.id} book={book} />
-    ))}
-  </ul>
-);
+function BookList() {
+  return (
+    <>
+      <ul>
+        <BookItem />
+      </ul>
+      <BookAdd />
+    </>
+  );
+}
 
-Books.propTypes = {
-  bookList: PropTypes.arrayOf(
-    PropTypes.shape({
-      booktitle: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
-};
-
-export default Books;
+export default BookList;
