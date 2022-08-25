@@ -1,23 +1,20 @@
 import React from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import AddNewBook from './NewBook';
-import Books from './Books';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './Navbar';
+import BookList from './BookList';
+import Categories from './Categories';
 
-const BookPage = () => {
-  const bookList = [
-    {
-      booktitle: ' 10 Hour Diet',
-      author: ' Jeannette Hyde',
-      category: 'Health',
-      id: uuidv4(),
-    },
-  ];
+function BookStore() {
   return (
-    <div className="books">
-      <Books bookList={bookList} />
-      <AddNewBook />
-    </div>
-  );
-};
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<BookList />} />
+        <Route path="/categories" element={<Categories />} />
+      </Routes>
 
-export default BookPage;
+    </Router>
+  );
+}
+
+export default BookStore;

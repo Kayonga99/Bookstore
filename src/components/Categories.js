@@ -1,9 +1,11 @@
 import React from 'react';
 
-const CategoryPage = () => (
-  <div>
-    <button type="button">CHECK STATUS</button>
-  </div>
-);
+function Categories() {
+  return (
+    <div>
+      Under construction
+    </div>
+  );
+}
 
-export default CategoryPage;
+export default Categories;

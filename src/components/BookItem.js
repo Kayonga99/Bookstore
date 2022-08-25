@@ -32,4 +32,3 @@ function BookItem() {
 }
 
 export default BookItem;
-Footer
