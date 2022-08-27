@@ -1,7 +1,7 @@
 const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 const FETCH_BOOKS = 'bookStore/books/FETCH_BOOKS';
-const DataLink = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/wOYGILJdcltu0mVjEpmf/books/';
+const dataLink = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/wOYGILJdcltu0mVjEpmf/books/';
 
 const initialState = [];
 
@@ -37,7 +37,7 @@ const booksReducer = (state = initialState, action) => {
 };
 
 export const fetchBooksList = () => async (dispatch) => {
-  const booksList = await fetch(`${urlLink}`)
+  const booksList = await fetch(`${dataLink}`)
     .then((response) => response.json());
   const booksID = Object.keys(booksList);
   const formBooks = [];
@@ -51,7 +51,7 @@ export const fetchBooksList = () => async (dispatch) => {
 };
 
 export const postBook = (newBook) => async (dispatch) => {
-  await fetch(`${urlLink}`, {
+  await fetch(`${dataLink}`, {
     method: 'POST',
     body: JSON.stringify({
       item_id: newBook.id,
@@ -67,7 +67,7 @@ export const postBook = (newBook) => async (dispatch) => {
 };
 
 export const deleteBook = (id) => async (dispatch) => {
-  await fetch(`${urlLink}/${id}`, {
+  await fetch(`${dataLink}/${id}`, {
     method: 'DELETE',
     body: JSON.stringify({
       item_id: id,

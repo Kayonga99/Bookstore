@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import './App.css';
-import CategoryPage from './components/CategoryPage';
+import CategoryPage from './components/Categories';
 import BooksPage from './components/BookPage';
 
 const App = () => (
