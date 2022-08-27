@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeBook } from '../redux/books/books';
 
@@ -24,11 +25,20 @@ function BookItem() {
         </span>
 
         {' '}
-        <button type="button" onClick={() => handleRemove(book.id)}>Delete</button>
+        <button type="button" onClick={() => handleRemove(book.id)}>Remove</button>
       </li>
     ))
 
   );
 }
+
+BookItem.propTypes = {
+  book: PropTypes.shape({
+    booktitle: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default BookItem;
