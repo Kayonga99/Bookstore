@@ -25,7 +25,7 @@ function BookItem() {
         </span>
 
         {' '}
-        <button type="button" onClick={() => handleRemove(book.id)}>Delete</button>
+        <button type="button" onClick={() => handleRemove(book.id)}>Remove</button>
       </li>
     ))
 
