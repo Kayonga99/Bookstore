@@ -1,9 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-const CategoryPage = () => (
-  <div>
-    <button type="button">CHECK STATUS</button>
-  </div>
-);
+const Categories = () => {
+  const categories = useSelector((state) => state.checkReducer.categories);
 
-export default CategoryPage;
+  return (
+
+    <div>
+      <h2>{categories}</h2>
+    </div>
+  );
+};
+
+export default Categories;

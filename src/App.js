@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import './App.css';
-import CategoryPage from './components/Categories';
+import Categories from './components/Categories';
 import BooksPage from './components/BookPage';
 
 const App = () => (
@@ -28,7 +28,7 @@ const App = () => (
     </nav>
     <Routes>
       <Route exact path="/" element={<BooksPage />} />
-      <Route exact path="/categories" element={<CategoryPage />} />
+      <Route exact path="/categories" element={<Categories />} />
     </Routes>
   </div>
 );

@@ -2,12 +2,14 @@
 
 # Bookstore: Use Redux in React components.
 
+> A single page bookstore app. This app allows the user to add and remove books with Author, Category and Title
+
 Get started by copying and pasting the following in your terminal:
 
 - 1
 
 ```
-
+git@github.com:Kayonga99/Bookstore.git
 ```
 
 - 2
