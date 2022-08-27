@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Bookstore: connect to API
+# Bookstore: styling
 
 > A single page bookstore app. This app allows the user to add and remove books with Author, Category and Title
 
