@@ -31,4 +31,13 @@ function BookItem() {
   );
 }
 
+BookItem.propTypes = {
+  book: PropTypes.shape({
+    booktitle: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
 export default BookItem;
