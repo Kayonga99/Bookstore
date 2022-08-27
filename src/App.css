@@ -133,6 +133,7 @@ body {
   background: var(--main-acent-color);
   padding: 5px 12px;
   width: max-content;
+  padding: 16px;
 }
 
 .navigation > ul > li > a {
