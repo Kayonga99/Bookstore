@@ -1,17 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import AddNewBook from './NewBook';
+import Books from './Books';
 
-function Navbar() {
+const BooksPage = () => {
+  const bookList = useSelector((state) => state.booksReducer);
   return (
-    <div>
-      <ul>
-        <Link key="1" to="/">Books</Link>
-        <Link key="2" to="/categories">Categories</Link>
-      </ul>
+    <div className="books">
+      <Books bookList={bookList} />
+      <AddNewBook />
     </div>
   );
-}
+};
 
-export default Navbar;
-
-
+export default BooksPage;
