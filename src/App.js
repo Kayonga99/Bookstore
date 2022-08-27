@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
+import { FaUserAlt } from 'react-icons/fa';
 import './App.css';
 import Categories from './components/Categories';
 import BooksPage from './components/BookPage';
