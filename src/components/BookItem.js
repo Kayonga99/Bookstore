@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { deleteBook } from '../redux/books/books';
+import { removeBook } from '../redux/books/books';
 
 const BookItem = ({ book }) => {
   const {
@@ -12,7 +12,7 @@ const BookItem = ({ book }) => {
   const dispatch = useDispatch();
 
   const HandleRemove = () => {
-    dispatch(deleteBook(id));
+    dispatch(removeBook(id));
   };
 
   const chapterVal = Math.round(Math.random() * 10);
