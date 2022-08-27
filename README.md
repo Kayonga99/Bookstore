@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Bookstore: styling
+# Bookstore
 
 > A single page bookstore app. This app allows the user to add and remove books with Author, Category and Title
 
@@ -33,6 +33,7 @@ http://localhost:3000
 ## Buit with
 
 - REACT
+- REDUX
 - Webpack
 - CSS
 
