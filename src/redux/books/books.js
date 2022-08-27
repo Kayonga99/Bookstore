@@ -40,14 +40,14 @@ export const fetchBooksList = () => async (dispatch) => {
   const booksList = await fetch(`${dataLink}`)
     .then((response) => response.json());
   const booksID = Object.keys(booksList);
-  const formBooks = [];
-  booksID.map((key) => formBooks.push({
+  const formatedBooks = [];
+  booksID.map((key) => formatedBooks.push({
     id: key,
     title: booksList[key][0].title,
     author: booksList[key][0].author,
     category: booksList[key][0].category,
   }));
-  dispatch(fetchBook(formBooks));
+  dispatch(fetchBook(formatedBooks));
 };
 
 export const postBook = (newBook) => async (dispatch) => {
