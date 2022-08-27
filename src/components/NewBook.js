@@ -1,53 +1,90 @@
 import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/books';
+import { v4 as uuidv4 } from 'uuid';
+import { postBook } from '../redux/books/books';
 
-function BookAdd() {
+const AddNewBook = () => {
+  const [inputValues, setInputValues] = useState({
+    title: '',
+    author: '',
+    id: '',
+    category: '',
+  });
   const dispatch = useDispatch();
+  const [errorMsg, setError] = useState('');
 
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-
-  const handleTitleChange = (e) => {
-    setTitle(e.target.value);
-  };
-  const handleAuthorChange = (e) => {
-    setAuthor(e.target.value);
-  };
-
-  const submitBookToStore = () => {
+  const submitBookToStore = (e) => {
+    e.preventDefault();
+    const id = uuidv4();
+    const { title, author, category } = inputValues;
     const newBook = {
-      id: uuidv4(),
+      id,
       title,
       author,
+      category,
     };
-    dispatch(addBook(newBook));
+
+    if (newBook.title.trim().length === 0) {
+      setError('Add a title to submit...');
+      setInputValues(newBook);
+    } else if (newBook.category === '') {
+      setError('Select Category to submit...');
+      setInputValues(newBook);
+    } else {
+      setError('');
+      dispatch(postBook(newBook));
+      setInputValues({
+        title: '',
+        author: '',
+        id: '',
+        category: '',
+      });
+    }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    e.target.children[1].children[0].value = null;
-    e.target.children[1].children[1].value = null;
-    setTitle('');
-    setAuthor('');
+  const onChange = (e) => {
+    setInputValues({
+      ...inputValues,
+      [e.target.name]: e.target.value,
+    });
   };
+
   return (
-    <>
-      <form action="#" onSubmit={handleSubmit}>
-        <h2>ADD NEW BOOK</h2>
-        <input type="text" placeholder="Book Title .." onChange={(e) => handleTitleChange(e)} />
-        <input className="book-input" placeholder="Author" onChange={(e) => handleAuthorChange(e)} />
-        <select id="books" name="books">
-          <option value="Fiction">Fiction</option>
-          <option value="Action">Action</option>
-          <option value="Adventure">Adventure</option>
-          <option value="Romance">Romance</option>
-        </select>
-      </form>
-      <button type="button" onClick={(e) => submitBookToStore(e)}>ADD BOOK</button>
-    </>
-  );
-}
+    <form className="add-book-section" onSubmit={submitBookToStore}>
+      <h1>ADD NEW BOOK</h1>
+      <input
+        type="text"
+        placeholder="Book title"
+        name="title"
+        onChange={onChange}
+        required
+      />
 
-export default BookAdd;
+      <input
+        type="text"
+        placeholder="Book author"
+        name="author"
+        onChange={onChange}
+        required
+      />
+      <select
+        placeholder="categories"
+        name="category"
+        onChange={onChange}
+        required
+      >
+        <option value="">Category</option>
+        <option value="Romance">Romance</option>
+        <option value="Biography">Biography</option>
+        <option value="Fiction">Action</option>
+        <option value="Health">Health</option>
+      </select>
+      <button type="submit" onClick={submitBookToStore}>
+        Add Book
+      </button>
+      <small>{errorMsg}</small>
+    </form>
+  );
+};
+
+export default AddNewBook;
