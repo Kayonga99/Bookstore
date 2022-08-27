@@ -1,6 +1,7 @@
 const CHECK_STATUS = 'bookStore/categories/CHECK_STATUS';
 
-const categoriesState = { categories: [], showState: false };
+const categoriesState = { categories: ['Under Construction...'], showState: false };
+
 export const checkStatus = () => ({
   type: CHECK_STATUS,
   showState: false,
