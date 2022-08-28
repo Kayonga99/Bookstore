@@ -28,7 +28,7 @@ npm start
 http://localhost:3000
 ```
 
-- [click here! to see live demo](https://heroic-stroopwafel-afb631.netlify.app/)
+- [click here! to see live demo](https://helpful-macaron-fb3edd.netlify.app/)
 
 ## Buit with
 
